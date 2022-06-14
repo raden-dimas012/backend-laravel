@@ -81,8 +81,8 @@ class UserController extends Controller
                 'name' => $request->name,
                 'email' => $request->email,
                 'address' => $request->address,
-                'houseNumber' => $request->houseNumber,
-                'phoneNumber' => $request->phoneNumber,
+                'housenumber' => $request->housenumber,
+                'phonenumber' => $request->phonenumber,
                 'city' => $request->city,
                 'password' => Hash::make($request->password),
             ]);
@@ -128,7 +128,7 @@ class UserController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return ResponseFormatter::error(['error'=>$validator->errors()], 'Update Photo Failed', 401);
+            return ResponseFormatter::error(['error'=>$validator->errors()], 'Update Photo Fails', 401);
         }
 
         if ($request->file('file')) {
